@@ -13,7 +13,12 @@ xcodebuild -project "${APP_NAME}.xcodeproj" \
     CODE_SIGN_IDENTITY="-" \
     CODE_SIGNING_REQUIRED=NO \
     CODE_SIGNING_ALLOWED=NO \
-    clean build 2>&1 | tail -5
+    clean build 2>&1 | tee /tmp/cozyclip-build.log | grep -E "(error:|warning:|BUILD|FAILED)" || true
+
+if ! grep -q "BUILD SUCCEEDED" /tmp/cozyclip-build.log; then
+    echo "ERROR: Build failed. Full log at /tmp/cozyclip-build.log"
+    exit 1
+fi
 
 APP_PATH="${BUILD_DIR}/Build/Products/Release/${APP_NAME}.app"
 

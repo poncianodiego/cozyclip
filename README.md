@@ -16,7 +16,11 @@ A simple, lightweight clipboard manager for macOS. Lives in your menu bar, store
 
 - **Platform:** macOS only
 - **Minimum version:** macOS 13.0 (Ventura)
-- **Architecture:** Apple Silicon (arm64) and Intel (x86_64)
+- **Architecture:** Builds for the host architecture (Apple Silicon or Intel)
+
+## Privacy
+
+CozyClip stores clipboard history in local UserDefaults. Clipboard contents are **not encrypted** — avoid using this if you regularly copy sensitive data like passwords. No data is sent to any server.
 
 ## Build
 

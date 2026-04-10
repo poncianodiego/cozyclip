@@ -28,7 +28,8 @@ class ClipboardManager: ObservableObject {
         startMonitoring()
     }
 
-    func startMonitoring() {
+    private func startMonitoring() {
+        timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
             self?.checkClipboard()
         }
