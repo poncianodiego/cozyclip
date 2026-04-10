@@ -1,0 +1,8 @@
+build/
+dmg_temp/
+CozyClip.dmg
+.DS_Store
+xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+DerivedData/
